@@ -1,0 +1,7 @@
+{
+  "name": "oinic-music",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
