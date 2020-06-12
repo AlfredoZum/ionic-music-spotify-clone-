@@ -5,14 +5,19 @@ import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegisterPage implements OnInit {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   validationMessages = {
+    name: [
+      {
+        type: 'required', message: 'El nombre es requerido'
+      },
+    ],
     email: [
       {
         type: 'required', message: 'El email es requerido'
@@ -40,16 +45,22 @@ export class LoginPage implements OnInit {
     private storage: Storage
   ) {
 
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
+      name: new FormControl(
+        '', 
+        Validators.compose([
+          Validators.required,
+        ])
+      ),
       email: new FormControl(
-        '',
+        '', 
         Validators.compose([
           Validators.required,
           Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
         ])
       ),
       password: new FormControl(
-        '',
+        '', 
         Validators.compose([
           Validators.required,
           Validators.minLength(5)
@@ -59,27 +70,17 @@ export class LoginPage implements OnInit {
 
   }
 
-  loginUser( credentials ){
-    this.authService.loginUser( credentials ).then(res => {
-      this.storage.set('isUserLoggedIn', true);
-      this.errorMessage = '';
-      this.navCtrl.navigateForward('/home');
-    }).catch( err => {
-      this.storage.set('isUserLoggedIn', false);
-      this.errorMessage = "Error";
+  register( userData ){
+    this.authService.registerUser( userData ).then( () => {
+      this.goToLogin();
     });
   }
 
-  goToRegister(){
-    this.navCtrl.navigateForward('/register');
+  goToLogin(){
+    this.navCtrl.navigateForward('/login');
   }
 
   ngOnInit() {
   }
 
 }
-
-/*email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
-      ]))*/
