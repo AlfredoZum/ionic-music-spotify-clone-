@@ -23,6 +23,23 @@ export class MenuPage implements OnInit {
     this.menu.close();
   }
 
+  goToHome(){
+    this.navCtrl.navigateForward('menu/home');
+    this.menu.close();
+  }
+
+  goToSport(){
+    this.navCtrl.navigateForward('menu/sport');
+    this.menu.close();
+  }
+
+  goToSetting(){
+    this.navCtrl.navigateForward('menu/settings');
+    this.menu.close();
+  }
+
+  
+
   logout(){
     this.storage.set('isUserLoggedIn', false);
     this.navCtrl.navigateForward('/login');
