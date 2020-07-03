@@ -29,7 +29,7 @@ export class MenuPage implements OnInit {
   }
 
   goToSport(){
-    this.navCtrl.navigateForward('menu/sport');
+    this.navCtrl.navigateForward('menu/sports');
     this.menu.close();
   }
 
