@@ -15,7 +15,7 @@ export class HomePage {
   artists: any[] = [];
   slideOps = {
     initialSlide: 2,
-    slidesPerView: 4,
+    slidesPerView: 2.5,
     centeredSLides: true,
     speed: 400
   };
@@ -23,10 +23,14 @@ export class HomePage {
     preview_url: string;
     playing: boolean;
     name: string;
+    nameArtists: string,
+    imgAlbum: string,
   } = {
     preview_url: '',
     playing: false,
-    name: ''
+    name: '',
+    nameArtists: '',
+    imgAlbum: '',
   };
   currentSong: HTMLAudioElement;
   newTime;
@@ -35,10 +39,6 @@ export class HomePage {
 
   ionViewDidEnter(){
     this.musicService.getNewRelease().then( (  newReleases ) => {
-
-      console.log( newReleases.albums );
-      console.log( "newReleases.albums newReleases.albums" );
-
       this.artists = this.musicService.getArtists();
       this.songs = newReleases.albums.items.filter( e => e.album_type === 'single' );
       this.albums = newReleases.albums.items.filter( e => e.album_type === 'album' );
@@ -59,6 +59,10 @@ export class HomePage {
     modal.onDidDismiss().then( dataReturned => {
       if ( dataReturned.data ){
         this.song = dataReturned.data;
+        this.song.nameArtists = dataReturned.data.artists[0].name;
+        this.song.imgAlbum = dataReturned.data.album.images[0].url;
+        this.currentSong = new Audio( this.song.preview_url );
+        //this.currentSong.play();
       }
     });
 
