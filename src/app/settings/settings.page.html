@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Settings</ion-title>
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+    <ion-title size="small" >Settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,24 +10,139 @@
 <ion-content class="ion-text-center" >
   <div >
 
-    <ion-avatar (click)="takePhoto()" >
-      <img [src]="userImage" alt="" *ngIf="!photo" />
-      <img [src]="photo" alt="" *ngIf="photo" />
-    </ion-avatar>
-    <h1>Alfredo Zum</h1>
-    <h2>alfredo.conomia@gmail.com</h2>
-
     <ion-grid>
-      <ion-row class="row-header ion-align-items-center ion-text-center" >
-        <ion-col>140</ion-col>
-        <ion-col>2k</ion-col>
-        <ion-col>500</ion-col>
+      <ion-row  class="ion-justify-content-center ion-align-items-center" >
+        <ion-col size="2" >
+          <ion-avatar (click)="takePhoto()"  >
+            <img [src]="userImage" alt="" *ngIf="!photo" />
+            <img [src]="photo" alt="" *ngIf="photo" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="9" class="ion-text-start" >
+          <p id="nameUser" >Alfredo Zum</p>
+          <p id="seeProfile" >View Profile</p>
+        </ion-col>
+        <ion-col size="1" >
+          <ion-icon name="arrow-forward" ></ion-icon>
+        </ion-col>
       </ion-row>
-      <ion-row class="ion-align-items-center ion-text-center" >
-        <ion-col>Artistas</ion-col>
-        <ion-col>Seguidores</ion-col>
-        <ion-col>Canciones</ion-col>
+      
+      <!-- Data Saver -->
+      <ion-row class="ion-text-start" >
+        <ion-col><p class="section" >Data Saver</p></ion-col>
       </ion-row>
+
+      <app-settings-toggle-button 
+        title="Off"
+        description="Sets your music quality to low and disables Canvas."
+      ></app-settings-toggle-button>
+
+      <!-- Playback -->
+      <ion-row class="ion-text-start" >
+        <ion-col><p class="section" >Playback</p></ion-col>
+      </ion-row>
+
+      <app-settings-toggle-button 
+        title="Offline mode"
+        description="When you go offline, you `ll only be able to play the music and podcasts you ´ve downloades. "
+      ></app-settings-toggle-button>
+
+      <ion-row class="ion-justify-content-center ion-text-start" >
+        <ion-col  >
+          <p class="settingTitle" >Crossfade</p>
+          <p class="settingDescription" >
+            Allows you to crossfade between songs.
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center ion-text-start" >
+        <ion-col  >
+          <ion-range min="0" max="12" color="success">
+            <ion-label slot="start">Off</ion-label>
+            <ion-label slot="end">12 s</ion-label>
+          </ion-range>
+        </ion-col>
+      </ion-row>
+
+      <app-settings-toggle-button 
+        title="Gapless"
+        description="Allows gapless playback"
+      ></app-settings-toggle-button>
+
+      <app-settings-toggle-button 
+        title="Automix"
+        description="Allow smooth transitions between songs in a playlist."
+      ></app-settings-toggle-button>
+
+      <app-settings-toggle-button 
+        title="Allow Explicit Content"
+        description="Turn on to play explicit content. <br>Explicit content is labeled with E tag."
+      ></app-settings-toggle-button>
+
+      <app-settings-toggle-button 
+        title="Show unplayable songs"
+        description="Show songs are unplable."
+      ></app-settings-toggle-button>
+
+      <app-settings-toggle-button 
+        title="Normalize volume"
+        description="Adjust the volume for your environment"
+      ></app-settings-toggle-button>
+
+      <app-settings-dropdown
+        title="Volumen level"
+        description="Adjust the volume for your environment."
+        [options]="volumenLevel"
+      ></app-settings-dropdown>
+
+       <!-- Storage -->
+       <ion-row class="ion-text-start" >
+        <ion-col><p class="section" >Storage</p></ion-col>
+      </ion-row>
+    
+      <ion-row class="ion-text-start" >
+        <ion-col>
+          <ion-progress-bar value="0.5"></ion-progress-bar>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-text-start" >
+        <ion-col size="1" >
+          <span class="dot"></span>
+        </ion-col>
+        <ion-col size="4" >
+          <p class="titleDot" >Other apps</p>
+        </ion-col>
+        <ion-col size="3"  >
+          <p class="amountDot" >9.3 GB</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-text-start" >
+        <ion-col size="1" >
+          <span class="dot"></span>
+        </ion-col>
+        <ion-col size="4" >
+          <p class="titleDot" >Cache</p>
+        </ion-col>
+        <ion-col size="3"  >
+          <p class="amountDot" >18.0 MB</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-text-start" >
+        <ion-col size="1" >
+          <span class="dot"></span>
+        </ion-col>
+        <ion-col size="4" >
+          <p class="titleDot" >Free</p>
+        </ion-col>
+        <ion-col size="3"  >
+          <p class="amountDot" >40.4 GB</p>
+        </ion-col>
+      </ion-row>
+
     </ion-grid>
 
   </div>

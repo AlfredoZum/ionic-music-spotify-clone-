@@ -11,6 +11,7 @@ export class SettingsPage implements OnInit {
 
   userImage = 'assets/img/profile.jpg';
   photo: SafeResourceUrl;
+  volumenLevel: any[] = ['Loud', 'Normal', 'Quiet'];
 
   constructor( private sanitizer: DomSanitizer ) { }
 
