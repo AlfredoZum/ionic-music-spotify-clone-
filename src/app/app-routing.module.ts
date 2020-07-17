@@ -11,7 +11,7 @@ const routes: Routes = [
   },*/
   {
     path: '',
-    redirectTo: 'menu',
+    redirectTo: 'home-tabs',
     pathMatch: 'full'
   },
   {
@@ -34,6 +34,18 @@ const routes: Routes = [
   {
     path: 'songs-modal',
     loadChildren: () => import('./songs-modal/songs-modal.module').then( m => m.SongsModalPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'bottom-navigation',
+    loadChildren: () => import('./bottom-navigation/bottom-navigation.module').then( m => m.BottomNavigationPageModule)
+  },
+  {
+    path: 'home-tabs',
+    loadChildren: () => import('./home-tabs/home-tabs.module').then( m => m.HomeTabsPageModule)
   },
 ];
 

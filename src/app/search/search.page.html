@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar class="ion-text-center" >
+
+    <ion-title>
+      Search
+    </ion-title>
+   
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col id="divInputSearch" >
+        <ion-input placeholder="Artists, Songs, or podcasts"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <div *ngFor="let list of listSearch" >
+      
+      <ion-row id="content-cards" >
+        <ion-col >
+          <p class="titleCategory" >{{ list.title }}</p>
+          <ion-row  >
+            <ion-col *ngFor="let card of list.cards" >
+              <ion-card color="{{ card.color }}" class="cardsCategories" >
+                <ion-card-content>
+                  {{ card.title }}
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+      
+    </div>
+
+   
+
+  </ion-grid>
+
+</ion-content>

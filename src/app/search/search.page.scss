@@ -1,0 +1,49 @@
+ion-header{
+  padding-top: 75px;
+  padding-bottom: 15px;
+  background: linear-gradient(
+    197deg, 
+    rgba(29,29,29,1) 33.33%, 
+    rgba(0,0,0,1) 100%,
+    rgba(100,100,100,1) 0%, 
+    rgba(63,63,63,1) 13.5%, 
+  ) !important;
+
+  ion-title{
+    font-size: 2.7rem;
+    color: white;
+    font-weight: 700;
+  }
+  
+}
+
+#divInputSearch{
+  margin: 0px 10px;
+}
+
+ion-input{
+  background: white;
+  color: black;
+  border-radius: 3px;
+  text-align: center;
+
+  ::placeholder {
+    color: red;
+  }
+}
+
+.titleCategory{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cardsCategories{
+  margin: 0;
+  height: 100px;
+
+  ion-card-content{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+}
