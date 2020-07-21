@@ -1,0 +1,43 @@
+#header-page{
+
+  margin-top: 25px;
+ 
+  a{
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 700;
+    margin: 0px 8px;
+  }
+
+}
+
+ion-toolbar{
+  --background: --ion-background-color;
+}
+
+ion-list{
+  --background: --ion-background-color;
+}
+
+ion-item{
+  --background: --ion-background-color;
+}
+
+ion-avatar{
+  width: 70px;
+  height: 70px;
+  --border-radius: 0;
+  margin-right: 16px; 
+}
+
+ion-label{
+  span{
+    font-weight: 700;
+  }
+
+  h3{
+    color: #898586;
+    font-weight: 400;
+  }
+
+}

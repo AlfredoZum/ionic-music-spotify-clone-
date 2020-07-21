@@ -47,6 +47,14 @@ const routes: Routes = [
     path: 'home-tabs',
     loadChildren: () => import('./home-tabs/home-tabs.module').then( m => m.HomeTabsPageModule)
   },
+  {
+    path: 'your-library',
+    loadChildren: () => import('./your-library/your-library.module').then( m => m.YourLibraryPageModule)
+  },
+  {
+    path: 'my-library',
+    loadChildren: () => import('./my-library/my-library.module').then( m => m.MyLibraryPageModule)
+  },
 ];
 
 @NgModule({

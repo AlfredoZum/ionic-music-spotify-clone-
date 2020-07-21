@@ -34,7 +34,7 @@ export class HomePage {
   };
   currentSong: HTMLAudioElement;
   newTime;
-  
+
   constructor( private musicService: MusicService, private modalController: ModalController ) {}
 
   ionViewDidEnter(){

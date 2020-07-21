@@ -1,0 +1,39 @@
+<ion-content>
+
+  <ion-grid>
+    <div id="header-page" >
+      <a>Music</a>
+      <a>Podcasts</a>
+    </div>
+    
+  </ion-grid>
+
+  <ion-toolbar [color]="black">
+    <ion-buttons slot="start">
+      <ion-button>
+        Playlists
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>
+        Artists
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>
+        Albums
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-slides [options]="slideOps" *ngIf="artists.length">
+    <ion-slide *ngFor="let artist of artists">
+        <ion-avatar class="square-avatar" (click)="showSongs(artist)" >
+            <img [src]="artist.images[0].url" alt="" />
+            <span>{{ artist.name }}</span>
+        </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

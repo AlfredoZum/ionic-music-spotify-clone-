@@ -1,0 +1,47 @@
+<ion-content>
+
+  <ion-grid>
+    <div id="header-page" >
+      <a>Music</a>
+      <a>Podcasts</a>
+    </div>
+    
+  </ion-grid>
+
+  <ion-toolbar [color]="black">
+    <ion-buttons slot="start">
+      <ion-button>
+        Playlists
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>
+        Artists
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>
+        Albums
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <div>
+
+    <ion-list *ngIf="currentMusic"  >
+      <ion-item *ngFor="let current of currentMusic" >
+        <ion-avatar >
+          <img [src]="current.images[0].url" alt="" />
+        </ion-avatar>
+        <ion-label>
+          <span>{{ current.name }}</span>
+          <h3 *ngIf="typeMusic=='single'" >by Alfredo Zum</h3>
+          <h3 *ngIf="typeMusic=='album'" >by Alfredo Zum</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

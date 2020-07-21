@@ -17,8 +17,8 @@ const routes: Routes = [
         loadChildren: () => import('../search/search.module').then( m => m.SearchPageModule)
       },
       {
-        path: 'settings',
-        loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
+        path: 'my-library',
+        loadChildren: () => import('../my-library/my-library.module').then( m => m.MyLibraryPageModule)
       },
       {
         path: '', redirectTo: 'home', pathMatch: 'full'
