@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MusicService } from '../services/music.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { SongsModalPage } from '../songs-modal/songs-modal.page';
 
 @Component({
@@ -10,6 +10,7 @@ import { SongsModalPage } from '../songs-modal/songs-modal.page';
 })
 export class HomePage {
 
+  recommendations: any[] = [];
   songs: any[] = [];
   albums: any[] = [];
   artists: any[] = [];
@@ -35,13 +36,24 @@ export class HomePage {
   currentSong: HTMLAudioElement;
   newTime;
 
-  constructor( private musicService: MusicService, private modalController: ModalController ) {}
+  constructor( 
+    private musicService: MusicService, 
+    private modalController: ModalController,
+    private navCtrl: NavController
+    ) {}
 
   ionViewDidEnter(){
     this.musicService.getNewRelease().then( (  newReleases ) => {
       this.artists = this.musicService.getArtists();
       this.songs = newReleases.albums.items.filter( e => e.album_type === 'single' );
       this.albums = newReleases.albums.items.filter( e => e.album_type === 'album' );
+
+      this.recommendations = [
+        [ this.albums[0],  this.albums[1]],
+        [ this.albums[2],  this.albums[3]],
+        [ this.albums[4],  this.albums[5]]
+      ];
+
     });
   }
 
@@ -101,6 +113,10 @@ export class HomePage {
 
     }
 
+  }
+
+  goToSettings(){
+    this.navCtrl.navigateForward('settings');
   }
 
 }

@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'my-library',
     loadChildren: () => import('./my-library/my-library.module').then( m => m.MyLibraryPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({

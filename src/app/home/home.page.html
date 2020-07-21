@@ -1,11 +1,33 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-buttons slot="end" >
     <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header>--->
+
+<div id="header-home" >
+  <ion-button (click)="goToSettings()" fill="clear">
+    <ion-icon slot="end" name="settings"></ion-icon>
+  </ion-button>
+</div>
+
 <ion-content [fullscreen]="true" class="ion-padding" >
+
+  <h1>Good evening</h1>
+  <ion-grid id="section-good-evening" >
+    <ion-row *ngFor="let recommendation of recommendations" > 
+      <ion-col size="6" *ngFor="let item of recommendation" >
+        <ion-card>
+          <ion-card-content >
+            <img [src]="item.images[0].url" alt="" />
+            <span>{{ item.name }}</span>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <h1>Artists</h1>
   <ion-slides [options]="slideOps" *ngIf="artists.length">
     <ion-slide *ngFor="let artist of artists">
